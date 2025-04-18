@@ -1,34 +1,40 @@
-# savary-b2b-onboarding
 # Onboarding B2B « Passe Commande En Tant Qu'Invité »
 
-Ce dépôt contient tout le nécessaire pour :
-1. Afficher un formulaire rapide B2B invité sur `https://savary.pro/account/register`
-2. Vérifier le SIRET via l’API Sirene
-3. Créer/taguer le client dans Shopify (`b2b`, `b2b-invited`)
-4. Envoyer l’invitation d’activation par email
-5. Tourner en serverless sur Vercel
-
----
-
-## Étapes d’installation
-
-1. **Cloner** ce dépôt sur GitHub  
-2. **Importer** dans Vercel (via l’UI ou `vercel` CLI)  
-3. **Définir** les variables d’environnement dans Vercel :  
-   - `SHOPIFY_API_TOKEN`  
-   - `SHOPIFY_WEBHOOK_SECRET`  
-4. **Déployer** (`vercel --prod` ou bouton Redeploy)  
-5. **Configurer** l’App Proxy Shopify :  
-   - Sub path prefix : `apps`  
-   - Sub path        : `b2b-onboarding`  
-   - Proxy URL       : `https://<VOTRE_PROJET>.vercel.app/apps/b2b-onboarding`  
-6. **Tester** sur `https://savary.pro/account/register`
-
----
+## Objectif
+Ce projet permet de proposer aux clients professionnels un accès rapide en tant qu’invité à la plateforme de commande B2B. Le formulaire collecte le nom de l’entreprise, l’e‑mail et le SIRET, vérifie automatiquement le numéro SIRET via l’API Sirene, crée/tague le client sur Shopify (`b2b`, `b2b-invited`) et envoie un e‑mail d’invitation.
 
 ## Structure du projet
 
-- **templates/customers/register.liquid** → le formulaire Liquid  
-- **assets/theme.scss.liquid**         → le CSS pour centrer et rendre responsive  
-- **api/customer-register.js**         → la fonction serverless Node.js  
-- **vercel.json**                      → la config de routes Vercel  
+```
+savary-b2b-onboarding/
+├── README.md                    # Ce fichier
+├── templates/
+│   └── customers/
+│       └── register.liquid      # Formulaire invité sur /account/register
+├── assets/
+│   └── theme.scss.liquid        # Styles CSS pour le formulaire
+├── api/
+│   └── customer-register.js     # Fonction serverless Vercel
+└── vercel.json                  # Configuration des routes Vercel
+```
+
+## Commandes Git & Vercel
+
+1. **Initialiser et pousser sur GitHub**
+   ```bash
+   git init -b main
+   git add .
+   git commit -m "Initial commit – onboarding B2B"
+   git branch -M main
+   git remote add origin https://github.com/votre‑utilisateur/savary-b2b-onboarding.git
+   git push -u origin main
+   ```
+
+2. **Déploiement sur Vercel**
+   ```bash
+   vercel --prod
+   ```
+
+> N’oubliez pas d’ajouter vos variables d’environnement (`SHOPIFY_API_TOKEN` et `SHOPIFY_WEBHOOK_SECRET`) dans les **Settings > Environment Variables** de Vercel avant de déployer.
+
+
