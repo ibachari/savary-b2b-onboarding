@@ -1,0 +1,3 @@
+git add api/customer-register.js vercel.json
+git commit -m "Ajout de la fonction serverless et config Vercel"
+git push -u origin main
