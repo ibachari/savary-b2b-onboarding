@@ -1,0 +1,6 @@
+git init
+git add .
+git commit -m "Init onboarding B2B"
+git branch -M main
+git remote add origin https://github.com/ibachari/savary-b2b-onboarding.git
+git push -u origin main
