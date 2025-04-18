@@ -1,3 +1,6 @@
 git add api/customer-register.js vercel.json
 git commit -m "Ajout de la fonction serverless et config Vercel"
-git push -u origin main
+git add .
+git commit -m "Init onboarding B2B"
+git push origin main
+
