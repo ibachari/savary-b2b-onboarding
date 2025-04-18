@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/customer-register.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    {
+      "src": "/webhook/customer-register",
+      "dest": "api/customer-register.js"
+    },
+    {
+      "src": "/apps/b2b-onboarding",
+      "dest": "api/customer-register.js"
+    }
+  ]
+}
